@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALMInlämning1", "ALMInlämning1\ALMInlämning1.csproj", "{C3B3129F-4C2C-4196-B762-44672DC16A74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALMInlämning1.WebUI", "ALMInlämning1\ALMInlämning1.WebUI.csproj", "{C3B3129F-4C2C-4196-B762-44672DC16A74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALMInlämning1.Test", "ALMInlämning1.WebUI\ALMInlämning1.Test.csproj", "{62A9AD7B-CC91-4D9B-A683-9AFF61FD3B9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C3B3129F-4C2C-4196-B762-44672DC16A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3B3129F-4C2C-4196-B762-44672DC16A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3B3129F-4C2C-4196-B762-44672DC16A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62A9AD7B-CC91-4D9B-A683-9AFF61FD3B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A9AD7B-CC91-4D9B-A683-9AFF61FD3B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A9AD7B-CC91-4D9B-A683-9AFF61FD3B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A9AD7B-CC91-4D9B-A683-9AFF61FD3B9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
