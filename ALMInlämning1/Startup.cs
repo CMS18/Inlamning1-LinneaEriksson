@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ALMInlämning1.WebUI.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,9 +32,27 @@ namespace ALMInlämning1
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSingleton<BankRepository>();
+
+            //var customers = new List<Customer>();
+            //customers.Add(new Customer { CusomterId = 1, FirstName = "Hans", LastName = "Svensson", Address = "Ringvägen 3" });
+            //customers.Add(new Customer { CusomterId = 2, FirstName = "Lars", LastName = "Lunden", Address = "Hamngatan 6" });
+            //customers.Add(new Customer { CusomterId = 3, FirstName = "Greta", LastName = "Kvast", Address = "Solstigen 54" });
+
+            //var accounts = new List<Account>();
+            //accounts.Add(new Account { CusomterId = 1, AccountNumber = 12345, Balance = 900000 });
+            //accounts.Add(new Account { CusomterId = 2, AccountNumber = 23456, Balance = 1000000 });
+            //accounts.Add(new Account { CusomterId = 3, AccountNumber = 34567, Balance = 500000 });
+            //accounts.Add(new Account { CusomterId = 1, AccountNumber = 45678, Balance = 4500000 });
+
+            //var repo = new BankRepository(customers, accounts);
+            
+            
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
