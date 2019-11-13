@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ALMInlämning1.WebUI.Models
 {
-    public class BankRepository 
+    public class BankRepository
     {
         public List<Customer> customers { get; set; } = new List<Customer>();
         public List<Account> accounts { get; set; } = new List<Account>();
@@ -18,10 +18,34 @@ namespace ALMInlämning1.WebUI.Models
             customers.Add(new Customer { CusomterId = 2, FirstName = "Lars", LastName = "Lunden", Address = "Hamngatan 6" });
             customers.Add(new Customer { CusomterId = 3, FirstName = "Greta", LastName = "Kvast", Address = "Solstigen 54" });
 
-            accounts.Add(new Account { CusomterId = 1, AccountNumber = 12345, Balance = 900000m });
-            accounts.Add(new Account { CusomterId = 2, AccountNumber = 23456, Balance = 1000000m });
-            accounts.Add(new Account { CusomterId = 3, AccountNumber = 34567, Balance = 500000m });
-            accounts.Add(new Account { CusomterId = 1, AccountNumber = 45678, Balance = 4500000m });
+            accounts.Add(new Account { CusomterId = 1, AccountNumber = 1, Balance = 900000m });
+            accounts.Add(new Account { CusomterId = 2, AccountNumber = 2, Balance = 1000000m });
+            accounts.Add(new Account { CusomterId = 3, AccountNumber = 3, Balance = 500000m });
+            accounts.Add(new Account { CusomterId = 1, AccountNumber = 4, Balance = 4500000m });
+        }
+
+        public void Withdraw(Account account, decimal amountToWithdraw)
+        {
+            if (account.Balance >= amountToWithdraw && amountToWithdraw>0)
+            {
+                account.Balance -= amountToWithdraw;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        public void Deposit(Account account, decimal amountToDeposit)
+        {
+            if (0 < amountToDeposit)
+            {
+                account.Balance += amountToDeposit;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
         }
     }
 }
