@@ -11,6 +11,7 @@
 
         @foreach (var cust in Model.Customers)
         {
+            <p>Kundid: @cust.CusomterId</p>
             <p>@cust.FirstName @cust.LastName</p>
             foreach (var acc in Model.Accounts) 
             {
