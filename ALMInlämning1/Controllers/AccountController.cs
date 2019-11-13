@@ -54,7 +54,7 @@ namespace ALMInlämning1.WebUI.Controllers
             {
                 try
                 {
-                    _repo.Withdraw(account, amount);
+                    _repo.Deposit(account, amount);
                     TempData["info"] = "The new balance on the account is " + account.Balance + " sek.";
                 }
                 catch (ArgumentOutOfRangeException)
