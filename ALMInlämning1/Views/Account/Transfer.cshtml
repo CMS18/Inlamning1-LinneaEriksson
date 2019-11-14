@@ -1,4 +1,5 @@
 ﻿<div>
+    <p>@TempData["transferInfo"]</p>
     <form asp-controller="Account" asp-action="Transfer" method="post">
 
         <label for="senderAccountId">Account id 1:</label>
@@ -9,6 +10,8 @@
         <br />
         <label for="amount">Amount:</label>
         <input type="text" id="amount" name="amount" />
+        <br />
+        <br />
         <button type="submit">Transfer</button>
 
     </form>

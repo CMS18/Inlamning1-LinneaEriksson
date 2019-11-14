@@ -71,12 +71,18 @@ namespace ALMInlämning1.WebUI.Controllers
 
         }
 
+        public IActionResult Transfer()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public IActionResult Transfer(int senderAccountId, int recieverAccountId, decimal amount)
         {
             var senderAccount = _repo.accounts.SingleOrDefault(a => a.AccountNumber == senderAccountId);
             var recieverAccount = _repo.accounts.SingleOrDefault(a => a.AccountNumber == recieverAccountId);
 
-            if (senderAccount == null)
+            if (senderAccount == null || senderAccountId == recieverAccountId)
             {
                 TempData["transferInfo"] = "Couldn't find sender account";
             }
@@ -89,6 +95,8 @@ namespace ALMInlämning1.WebUI.Controllers
                 try
                 {
                     senderAccount.Transfer(amount, recieverAccount);
+                    TempData["transferInfo"] = $"Money sent, updated sender balance: {senderAccount.Balance}, reciever balance: {recieverAccount.Balance}.";
+
                 }
                 catch (Exception e)
                 {
@@ -96,8 +104,9 @@ namespace ALMInlämning1.WebUI.Controllers
                 }
             }
 
-            return View();
+            return RedirectToAction();
         }
+
 
         //När man skriver i ett korrekt kontonummer och belopp och trycker på knappen ska respektive 
         //metod för insättning eller uttag på Bank-klassen anropas.
