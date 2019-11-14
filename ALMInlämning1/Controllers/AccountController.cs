@@ -95,7 +95,7 @@ namespace ALMInlämning1.WebUI.Controllers
                 try
                 {
                     senderAccount.Transfer(amount, recieverAccount);
-                    TempData["transferInfo"] = $"Money sent, updated sender balance: {senderAccount.Balance}, reciever balance: {recieverAccount.Balance}.";
+                    TempData["transferInfo"] = $"Money sent, updated sender balance (id {senderAccount.AccountNumber}): {senderAccount.Balance}, reciever balance (id {recieverAccount.AccountNumber}): {recieverAccount.Balance}.";
 
                 }
                 catch (Exception e)
