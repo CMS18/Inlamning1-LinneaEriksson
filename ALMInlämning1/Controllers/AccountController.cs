@@ -71,6 +71,43 @@ namespace ALMInlämning1.WebUI.Controllers
 
         }
 
+        public IActionResult Transfer()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Transfer(int senderAccountId, int recieverAccountId, decimal amount)
+        {
+            var senderAccount = _repo.accounts.SingleOrDefault(a => a.AccountNumber == senderAccountId);
+            var recieverAccount = _repo.accounts.SingleOrDefault(a => a.AccountNumber == recieverAccountId);
+
+            if (senderAccount == null || senderAccountId == recieverAccountId)
+            {
+                TempData["transferInfo"] = "Couldn't find sender account";
+            }
+            else if (recieverAccount == null)
+            {
+                TempData["transferInfo"] = "Couldn't find reciever account";
+            }
+            else
+            {
+                try
+                {
+                    senderAccount.Transfer(amount, recieverAccount);
+                    TempData["transferInfo"] = $"Money sent, updated sender balance (id {senderAccount.AccountNumber}): {senderAccount.Balance}, reciever balance (id {recieverAccount.AccountNumber}): {recieverAccount.Balance}.";
+
+                }
+                catch (Exception e)
+                {
+                    TempData["transferInfo"] = "Error sending money, make sure amount doesn't exceed balance";
+                }
+            }
+
+            return RedirectToAction();
+        }
+
+
         //När man skriver i ett korrekt kontonummer och belopp och trycker på knappen ska respektive 
         //metod för insättning eller uttag på Bank-klassen anropas.
         //Om något blir fel ska ett relevant felmeddelande visas, annars ska det nya saldot efter insättning eller uttag visas.

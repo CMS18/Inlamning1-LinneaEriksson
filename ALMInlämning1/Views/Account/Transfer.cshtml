@@ -1,0 +1,29 @@
+﻿<div>
+    <p>@TempData["transferInfo"]</p>
+    <form asp-controller="Account" asp-action="Transfer" method="post">
+
+        <label for="senderAccountId">Account id 1:</label>
+        <input type="text" id="senderAccountId" name="senderAccountId" />
+        <br />
+        <label for="recieverAccountId">Account id 2:</label>
+        <input type="text" id="recieverAccountId" name="recieverAccountId" />
+        <br />
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" />
+        <br />
+        <br />
+        <button type="submit" id="mySubmit">Transfer</button>
+
+    </form>
+</div>
+<style>
+    #mySubmit{
+        border-radius: 50%;
+        background-color: aquamarine;
+
+    }
+    #mySubmit:hover{
+        background-color: darkblue;
+        color: red;
+    }
+</style>
