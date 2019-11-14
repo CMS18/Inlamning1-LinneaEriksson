@@ -18,10 +18,10 @@ namespace ALMInlämning1.WebUI.Models
             customers.Add(new Customer { CusomterId = 2, FirstName = "Lars", LastName = "Lunden", Address = "Hamngatan 6" });
             customers.Add(new Customer { CusomterId = 3, FirstName = "Greta", LastName = "Kvast", Address = "Solstigen 54" });
 
-            accounts.Add(new Account { CusomterId = 1, AccountNumber = 1, Balance = 900000m });
-            accounts.Add(new Account { CusomterId = 2, AccountNumber = 2, Balance = 1000000m });
-            accounts.Add(new Account { CusomterId = 3, AccountNumber = 3, Balance = 500000m });
-            accounts.Add(new Account { CusomterId = 1, AccountNumber = 4, Balance = 4500000m });
+            accounts.Add(new Account { CusomterId = 1, AccountNumber = 1, Balance = 90m });
+            accounts.Add(new Account { CusomterId = 2, AccountNumber = 2, Balance = 100m });
+            accounts.Add(new Account { CusomterId = 3, AccountNumber = 3, Balance = 500m });
+            accounts.Add(new Account { CusomterId = 1, AccountNumber = 4, Balance = 4500m });
         }
 
         public void Withdraw(Account account, decimal amountToWithdraw)
